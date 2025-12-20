@@ -40,13 +40,6 @@ workflows:
             -executeMethod BuildScript.PerformBuild \
             -nographics
 
-      - name: Deactivate Unity license
-        script: |
-          echo "Deactivating Unity license..."
-          "$UNITY_HOME/Contents/MacOS/Unity" -batchmode \
-            -quit \
-            -returnlicense \
-            -nographics
 
     artifacts:
       - ChickenRun.aab
