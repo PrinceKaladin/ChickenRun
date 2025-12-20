@@ -16,7 +16,7 @@ workflows:
           "$UNITY_HOME/Contents/MacOS/Unity" -batchmode \
             -quit \
             -logFile unity_license.log \
-            -serial $UNITY_SERIAL
+            -serial $UNITY_SERIAL \
             -username $UNITY_EMAIL \
             -password $UNITY_PASSWORD
 
