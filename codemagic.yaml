@@ -8,7 +8,7 @@ workflows:
       vars:
         BUILD_PLATFORM: android
       groups:
-        - unity_credentials  # сюда входят UNITY_SERIAL, UNITY_EMAIL, UNITY_PASSWORD, а также CM_KEY_ALIAS, CM_KEYSTORE_PASSWORD, CM_KEY_PASSWORD
+        - unity_credentials  # UNITY_SERIAL, UNITY_EMAIL, UNITY_PASSWORD, CM_KEY_ALIAS, CM_KEYSTORE_PASSWORD, CM_KEY_PASSWORD
     scripts:
       - name: Activate Unity license
         script: |
@@ -37,6 +37,14 @@ workflows:
             -logFile unity_build.log \
             -projectPath . \
             -executeMethod BuildScript.PerformBuild \
+            -nographics
+
+      - name: Deactivate Unity license
+        script: |
+          echo "Deactivating Unity license..."
+          "$UNITY_HOME/Contents/MacOS/Unity" -batchmode \
+            -quit \
+            -returnlicense \
             -nographics
 
     artifacts:
