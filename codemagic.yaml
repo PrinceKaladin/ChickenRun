@@ -8,7 +8,7 @@ workflows:
       vars:
         BUILD_PLATFORM: android
       groups:
-        - unity_credentials  # UNITY_SERIAL, UNITY_EMAIL, UNITY_PASSWORD, CM_KEY_ALIAS, CM_KEYSTORE_PASSWORD, CM_KEY_PASSWORD
+        - unity_credentials # UNITY_SERIAL, UNITY_EMAIL, UNITY_PASSWORD, CM_KEY_ALIAS, CM_KEYSTORE_PASSWORD, CM_KEY_PASSWORD
     scripts:
       - name: Activate Unity license
         script: |
@@ -40,9 +40,18 @@ workflows:
             -executeMethod BuildScript.PerformBuild \
             -nographics
 
+      - name: Return (deactivate) Unity license
+        ignore_errors: true  # Не падаем, если деактивация не удалась (например, уже вернули)
+        script: |
+          echo "Returning Unity license..."
+          "$UNITY_HOME/Contents/MacOS/Unity" -batchmode \
+            -quit \
+            -logFile unity_return_license.log \
+            -returnLicense
 
     artifacts:
       - ChickenRun.aab
       - ChickenRun.apk
       - unity_build.log
       - unity_license.log
+      - unity_return_license.log  # Добавил лог деактивации для отладки
