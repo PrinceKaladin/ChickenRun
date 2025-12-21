@@ -362,9 +362,9 @@ MonoBehaviour:
   isalive: 1
   objectA: {fileID: 3072794004745404636, guid: ffad813e56e61954e95aa0c41e6c95a0, type: 3}
   objectB: {fileID: 6451185846435302301, guid: 3762cc8da2ed2184bad1a79d44245ad3, type: 3}
-  speed: 3
+  speed: 4
   spawnPosition: {x: 4, y: -2.15}
-  spawnDelay: 3
+  spawnDelay: 1.5
   isGameover: 0
   ls: {fileID: 0}
   bs: {fileID: 0}
