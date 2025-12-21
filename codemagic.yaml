@@ -20,6 +20,25 @@ workflows:
             -username $UNITY_EMAIL \
             -password $UNITY_PASSWORD
 
+      - name: Prepare Android keystore
+        script: |
+          echo "Decoding Android keystore..."
+          echo $CM_KEYSTORE_BASE64 | base64 --decode > chickenkfc.keystore
+          export ANDROID_KEYSTORE_PATH=chickenkfc.keystore
+          export ANDROID_KEYSTORE_PASSWORD=$CM_KEYSTORE_PASSWORD
+          export ANDROID_KEY_ALIAS=$CM_KEY_ALIAS
+          export ANDROID_KEY_PASSWORD=$CM_KEY_PASSWORD
+          echo "Keystore saved at $ANDROID_KEYSTORE_PATH"
+
+      - name: Build the project
+        script: |
+          echo "Building Unity project..."
+          "$UNITY_HOME/Contents/MacOS/Unity" -batchmode \
+            -quit \
+            -logFile unity_build.log \
+            -projectPath . \
+            -executeMethod BuildScript.PerformBuild \
+            -nographics
 
       - name: Return (deactivate) Unity license
         script: |
