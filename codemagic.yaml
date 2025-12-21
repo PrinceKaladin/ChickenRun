@@ -41,7 +41,6 @@ workflows:
             -nographics
 
       - name: Return (deactivate) Unity license
-        ignore_errors: true  # Не падаем, если деактивация не удалась (например, уже вернули)
         script: |
           echo "Returning Unity license..."
           "$UNITY_HOME/Contents/MacOS/Unity" -batchmode \
