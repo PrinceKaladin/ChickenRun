@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1434690564789601124}
   - component: {fileID: 3161771136658565022}
   - component: {fileID: 1041735492396431072}
+  - component: {fileID: 3624762740663079541}
   m_Layer: 0
   m_Name: image 1951
   m_TagString: egg
@@ -217,5 +218,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6703604000525708505, guid: 4881a074b025f3349adea94769677199, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3624762740663079541}
   m_SourcePrefab: {fileID: 100100000, guid: 4881a074b025f3349adea94769677199, type: 3}
+--- !u!50 &3624762740663079541
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315654006783182805}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
