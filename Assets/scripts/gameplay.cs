@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -26,9 +27,12 @@ public class gameplay : MonoBehaviour
     public bool isGameover;
     public Text ls;
     public Text bs;
+    public Vector2 targetposition;
+
     private void Start()
 
     {
+        
         if (isGameover) {
             ls.text = PlayerPrefs.GetInt("lastscore").ToString();
             bs.text = PlayerPrefs.GetInt("bestscore").ToString();
@@ -86,6 +90,8 @@ public class MoveLeft : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(-3.75f, -2.15f), speed * Time.deltaTime);
+
+
     }
 }
